@@ -1,0 +1,11 @@
+{
+  "name": "frontobjects",
+  "version": "1.0.0",
+  "main": "index.js",
+  "keywords": [
+    "frontobjects",
+    "express.js-template-engine",
+    "front-end"
+  ],
+  "license": "MIT"
+}

@@ -85,7 +85,10 @@ function encode(txt) {
       JSON.stringify(
         txt.
           replace(/\{/g, '!obrc!').
-          replace(/}/g, '!cbrc!')
+          replace(/}/g, '!cbrc!').
+          replace(/\(/g, '!oprtc!').
+          replace(/\)/g, '!cprtc!').
+          replace(/#result/g, '!rslt!');
       )
     )
   );
@@ -118,7 +121,10 @@ function jhtmlDecode(txt) {
 
   return txt.
     replace(/!obrc!/g, '{').
-    replace(/!cbrc!/g, '}');
+    replace(/!cbrc!/g, '}').
+    replace(/!oprtc!/g, '(').
+    replace(/!cprtc!/g, ')').
+    replace(/!rslt!/g, '#result');
 }
 
 

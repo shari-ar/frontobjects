@@ -88,7 +88,7 @@ function encode(txt) {
           replace(/}/g, '!cbrc!').
           replace(/\(/g, '!oprtc!').
           replace(/\)/g, '!cprtc!').
-          replace(/#result/g, '!rslt!');
+          replace(/#result/g, '!rslt!')
       )
     )
   );

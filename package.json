@@ -23,13 +23,7 @@
   "author": "ShariR <contact@frontobjectsjs.com> (https://frontobjectsjs.com)",
   "license": "MIT",
   "homepage": "https://frontobjectsjs.com/",
-  "funding": [
-    "https://frontobjectsjs.com/Donate",
-    {
-      "type": "patreon",
-      "url": "https://www.patreon.com/frontobjectsjs"
-    }
-  ],
+  "funding": "https://frontobjectsjs.com/Donate",
   "dependencies": {
     "cssesc": "latest",
     "fs": "latest",

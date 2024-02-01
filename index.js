@@ -74,6 +74,14 @@ async function renderAsync(viewPath, options, callback) {
 }
 
 
+async function webbrRenderAsync(code) {
+  return await jhtml.renderAsync({ path: './', code }, { jobjects: [] });
+}
+
+
 module.exports = {
   renderAsync
 };
+
+try { window.webbrRenderAsync = webbrRenderAsync; }
+catch { }

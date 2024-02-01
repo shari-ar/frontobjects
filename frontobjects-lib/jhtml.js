@@ -484,7 +484,9 @@ function addStyleTag(htmlBlockTree) {
   globalStylesList.forEach(style => {
     styleString += `${style.selector}{${style.declarations.join(';')}}`;
   });
-  htmlBlockTree[1].subNodes[0].subNodes.push({ type: 'block', tagName: 'style', subNodes: [{ type: 'content', value: styleString }] });
+  const head = htmlBlockTree.filter(x => x.type === 'block' && x.tagName === 'html')[0].subNodes.filter(x => x.type === 'block' && x.tagName === 'head')[0];
+  if (!head.subNodes) { head.subNodes = []; }
+  head.subNodes.push({ type: 'block', tagName: 'style', subNodes: [{ type: 'content', value: styleString }] });
 }
 
 

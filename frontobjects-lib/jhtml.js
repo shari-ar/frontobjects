@@ -51,10 +51,10 @@ function putObjects(jhtml, jobjects) {
   // Remove comments
   jhtml.code = jhtml.code.replace(/\/\*.*?\*\/|([^\\:]|^)\/\/.*$/gm, '');
 
-  // Encode '{{', '}}', '@(', ')@', '##result'
+  // Encode '@{', '}@', '@(', ')@', '##result'
   jhtml.code = jhtml.code
-  .replace(/\{\{/g, encode('{').slice(6, -6))
-  .replace(/}}/g, encode('}').slice(6, -6))
+  .replace(/@\{/g, encode('{').slice(6, -6))
+  .replace(/}@/g, encode('}').slice(6, -6))
   .replace(/@\(/g, encode('(').slice(6, -6))
   .replace(/\)@/g, encode(')').slice(6, -6))
   .replace(/##result/g, encode('#result').slice(6, -6));

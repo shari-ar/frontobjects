@@ -3,7 +3,7 @@ const path = require('path');
 const jhtml = require('./frontobjects-lib/jhtml');
 
 
-async function getAllFiles(directoryPath, extensions) {
+async function getAllFilesAsync(directoryPath, extensions) {
 
   try {
     const allFiles = [];
@@ -14,7 +14,7 @@ async function getAllFiles(directoryPath, extensions) {
       const fileStat = await fs.stat(filePath);
 
       if (fileStat.isDirectory()) {
-        const subdirectoryFiles = await getAllFiles(filePath, extensions);
+        const subdirectoryFiles = await getAllFilesAsync(filePath, extensions);
         allFiles.push(...subdirectoryFiles);
       } else if (extensions.includes(path.extname(filePath))) {
         allFiles.push(filePath);
@@ -23,13 +23,13 @@ async function getAllFiles(directoryPath, extensions) {
 
     return allFiles;
   } catch (error) {
-    throw new Error(`Error in getAllFiles`, error);
+    throw new Error(`Error in getAllFilesAsync`, error);
   }
 
 }
 
 
-async function readJObjectFiles(files) {
+async function readJObjectFilesAsync(files) {
 
   const jobjects = await Promise.all(files.map(async (filePath) => {
 
@@ -50,7 +50,7 @@ async function readJObjectFiles(files) {
 }
 
 
-async function render(viewPath, options, callback) {
+async function renderAsync(viewPath, options, callback) {
   try {
     const viewContent = await fs.readFile(viewPath, 'utf-8');
 
@@ -58,8 +58,8 @@ async function render(viewPath, options, callback) {
 
     if (!options.jobjects) {
       if (options.viewsPath) {
-        const jobjectPaths = await getAllFiles(options.viewsPath, ['.jobj']);
-        options.jobjects = await readJObjectFiles(jobjectPaths);
+        const jobjectPaths = await getAllFilesAsync(options.viewsPath, ['.jobj']);
+        options.jobjects = await readJObjectFilesAsync(jobjectPaths);
       } else {
         throw new Error('options must contain viewsPath or jobjects. If there is no jobjects, please set viewsPath (viewsPath is the path of the folder where the .jobj files are located).');
       }
@@ -75,5 +75,5 @@ async function render(viewPath, options, callback) {
 
 
 module.exports = {
-  render
+  renderAsync
 };

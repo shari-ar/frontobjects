@@ -11,11 +11,14 @@ let globalStylesList = [];
 const includedObjectsForExecuteJsFunc = [];
 
 let viewData;
+let folib;
 
 
 async function renderAsync(jhtml, options) {
 
   viewData = options;
+
+  folib = { getRegexUntilClosing: getRegexUntilClosing, getClosing: getClosing, getRandomString: getRandomString, encode: encode, decode: decode, jhtmlDecode: jhtmlDecode };
 
   jhtml.functionName = 'main';
 

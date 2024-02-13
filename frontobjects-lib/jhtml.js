@@ -422,11 +422,11 @@ function parse(jhtmlCode) {
     }
 
     if (blockInfo.tagName === 'dynamicStyles') {
-      trees.push({ type: 'block', tagName: blockInfo.tagName, attributes: blockInfo.attributes, subNodes: [{ type: 'content', value: decode(blockContent) }] });
+      trees.push({ type: 'block', tagName: blockInfo.tagName, attributes: jhtmlDecode(blockInfo.attributes), subNodes: [{ type: 'content', value: decode(blockContent) }] });
     } else if (blockInfo.tagName === 'scripts') {
-      trees.push({ type: 'block', tagName: blockInfo.tagName, attributes: blockInfo.attributes, subNodes: [{ type: 'content', value: decode(blockContent) }] });
+      trees.push({ type: 'block', tagName: blockInfo.tagName, attributes: jhtmlDecode(blockInfo.attributes), subNodes: [{ type: 'content', value: decode(blockContent) }] });
     } else {
-      trees.push({ type: 'block', tagName: blockInfo.tagName, attributes: blockInfo.attributes, subNodes: parse(blockContent) });
+      trees.push({ type: 'block', tagName: blockInfo.tagName, attributes: jhtmlDecode(blockInfo.attributes), subNodes: parse(blockContent) });
     }
 
     currentIndex = cbrcIndex + 1;

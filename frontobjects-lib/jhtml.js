@@ -72,7 +72,7 @@ function putObjects(jhtml, jobjects) {
     const relativePath = objCallMatch[1].replace(/\./g, '/').replace(/upDir/gi, '..') + '.jobj';
     const absolutePath = path.resolve(path.dirname(jhtml.path), relativePath);
 
-    const jobject = jobjects.find(x => x.path.split('-').map((word, index) => index !== 0 ? word.charAt(0).toUpperCase() + word.slice(1) : word).join('') === absolutePath);
+    const jobject = jobjects.find(x => x.path.substring(0, x.path.lastIndexOf('\\')) + x.path.substring(x.path.lastIndexOf('\\')).split('-').map((word, index) => index !== 0 ? word.charAt(0).toUpperCase() + word.slice(1) : word).join('') === absolutePath);
 
     if (jobject) {
       // try {

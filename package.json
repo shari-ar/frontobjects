@@ -4,7 +4,7 @@
   "description": "To write client-side code, almost like server-side languages, also a pure JavaScript template engine for express.js",
   "main": "dist/index.js",
   "scripts": {
-    "test": "echo No tests at the moment!",
+    "test": "echo \"No test at the moment!\" && exit 0",
     "build": "parcel build index.js && browserify index.js -o dist/webbrindex.js"
   },
   "repository": {

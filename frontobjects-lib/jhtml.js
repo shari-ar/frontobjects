@@ -204,7 +204,7 @@ function transformJhtmlBlock(jhtmlBlockMatch) {
   let result = {};
   if (jhtmlBlockMatch[1] === 'styles') {
     const compiledStyles = renderStyle(jhtmlBlockMatch[3]);
-    compiledStyles.stringResult = `;\n;result += \` dynamicStyles { ${encode(compiledStyles.stringResult).replace(/##(\w+)/g, `$\{$1}`)}\n }\`;`;
+    compiledStyles.stringResult = `;\n;result += \` dynamicStyles { ${encode(compiledStyles.stringResult).replace(/##(.+?)(\n|;|!cbrc!)/g, `$\{$1}$2`)}\n }\`;`;
     result = compiledStyles;
   } else if (jhtmlBlockMatch[1] === 'scripts') {
     result = { stringResult: `;\n;result += \` scripts { ${jhtmlBlockMatch[3]}\n }\`;` };

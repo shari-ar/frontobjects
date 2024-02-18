@@ -233,7 +233,7 @@ function transformJhtmlBlock(jhtmlBlockMatch) {
 function addClassToStyleList(styleList, clas) {
   const replaceSelectors = (array) => {
     array.forEach((style) => {
-      style.selector = '.' + clas + style.selector
+      style.selector = '.' + clas + ' ' +style.selector
     });
   };
 

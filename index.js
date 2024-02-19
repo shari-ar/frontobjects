@@ -52,7 +52,12 @@ async function readJObjectFilesAsync(files) {
 
 async function renderAsync(viewPath, options, callback) {
   try {
-    const viewContent = await fs.readFile(viewPath, 'utf-8');
+    let viewContent;
+    try { viewContent = await fs.readFile(viewPath, 'utf-8'); }
+    catch (err) {
+      viewPath = viewPath.substring(0, viewPath.lastIndexOf('\\')) + viewPath.substring(viewPath.lastIndexOf('\\')).replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
+      viewContent = await fs.readFile(viewPath, 'utf-8');
+    }
 
     const jhtmlFile = { path: viewPath, code: viewContent };
 

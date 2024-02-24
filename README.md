@@ -3,7 +3,7 @@ To write client-side code, almost like server-side languages
 
 also
 
-A pure JavaScript template engine for express.js
+A pure JavaScript template engine for Express.js
 ------------------------------------------------
 
 *   ### FrontObjectsJs is
@@ -11,8 +11,8 @@ A pure JavaScript template engine for express.js
     a structured way to organize HTML, CSS and JavaScript code using .jhtml and .jobj file formats. To start, simply write your html code in a .jhtml file in the form of blocks like this:
     
     Note: Before starting, you need to know HTML, CSS and JavaScript.
-    
-         html (lang="en") {
+
+        html (lang="en") {
            head { }
            body {
               div { }
@@ -54,13 +54,14 @@ Contents of Index.jhtml:
 
     html (lang="en") {
        head { }
-       body { #parts.myHelloPart('Hello World!'); 
+       body {
+          #parts.myHelloPart('Hello World!'); 
        }
     } 
 
 Contents of parts/my-hello-part.jobj
 
-     prop (txt) 
+    prop (txt) 
     div {
        #result += txt;
        styles { font-size: x-large; }

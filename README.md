@@ -1,9 +1,5 @@
 To write client-side code, almost like server-side languages
-============================================================
-
-also
-
-A pure JavaScript template engine for express.js
+============================================================ also A pure JavaScript template engine for express.js
 ------------------------------------------------
 
 *   ### FrontObjectsJs is

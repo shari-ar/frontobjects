@@ -73,6 +73,8 @@ Contents of parts/my-hello-part.jobj
     *   [Starting Line - frontend](https://frontobjectsjs.com/Documentation/Tutorials/Starting_Line_-_frontend)
     *   [Starting Line - backend](https://frontobjectsjs.com/Documentation/Tutorials/Starting_Line_-_backend)
     *   [Performance considerations](https://frontobjectsjs.com/Documentation/Tutorials/Performance_considerations)
+    *   [Simple home page example](https://frontobjectsjs.com/Documentation/Tutorials#Simple_home_page_example)
+    *   [FrontObjectsJs as Express.js template engine](https://frontobjectsjs.com/Documentation/Tutorials/FrontObjectsJs_as_Express.js_template_engine)
 *   [References](https://frontobjectsjs.com/Documentation/References)
 *   [folib the library](https://frontobjectsjs.com/Documentation/folib_the_library)
 *   [Donate](https://frontobjectsjs.com/Donate)

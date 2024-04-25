@@ -62,12 +62,11 @@ async function renderAsync(viewPath, options, callback) {
     const jhtmlFile = { path: viewPath, code: viewContent };
 
     if (!options.jobjects) {
-      if (options.viewsPath) {
-        const jobjectPaths = await getAllFilesAsync(options.viewsPath, ['.jobj']);
-        options.jobjects = await readJObjectFilesAsync(jobjectPaths);
-      } else {
-        throw new Error('options must contain viewsPath or jobjects. If there is no jobjects, please set viewsPath (viewsPath is the path of the folder where the .jobj files are located).');
+      if (!options.viewsPath) {
+        options.viewsPath = path.dirname(viewPath);
       }
+      const jobjectPaths = await getAllFilesAsync(options.viewsPath, ['.jobj']);
+      options.jobjects = await readJObjectFilesAsync(jobjectPaths);
     }
 
     const renderedContent = await jhtml.renderAsync(jhtmlFile, options);

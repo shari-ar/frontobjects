@@ -92,7 +92,13 @@ function putObjects(jhtml, jobjects) {
 
       const awaitAsync = awaitAsyncCheck([jobject.functionName, objCallMatch[2]]) ? 'await ' : '';
 
-      jhtml.code = jhtml.code.replace(objCallMatch[0], `;result += ${awaitAsync}${jobject.functionName}(${objCallMatch[2]});`);
+      const varMatch = jhtml.code.substring(objCallMatch.index + objCallMatch[0].length).match(/^\s*=>\s*(\w+)/);
+
+      if (varMatch) {
+        jhtml.code = `${jhtml.code.substring(0, objCallMatch.index)}; ${varMatch[1]} = ${awaitAsync}${jobject.functionName}(${objCallMatch[2]}); ${jhtml.code.substring(objCallMatch.index + objCallMatch[0].length + varMatch[0].length)}`;
+      } else {
+        jhtml.code = jhtml.code.replace(objCallMatch[0], `;result += ${awaitAsync}${jobject.functionName}(${objCallMatch[2]});`);
+      }
 
       // } catch (error) {
       // }

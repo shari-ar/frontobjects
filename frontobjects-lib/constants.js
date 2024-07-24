@@ -1,5 +1,6 @@
 
-const objCallRegex = /(?:\{|\}|\s|;)#([\w-_]+(?:\.[\w-_]+)*)\s*\(/;
+// const objCallRegex = /(?:\{|\}|\s|;)#([\w-_]+(?:\.[\w-_]+)*)\s*\(/;
+const objCallRegex = /#([\w-_]+(?:\.[\w-_]+)*)\s*\(/;
 
 const propBlockRegex = /^(?:\s*prop\s*)\(/;
 
